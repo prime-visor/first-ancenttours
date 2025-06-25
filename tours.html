@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore tours - Ancent Tours& Hotels Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+     <link rel="icon" href="picha/logo-removebg-preview.png" type="image/x-icon">
+     <link rel="stylesheet" href="style.css">
+     <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome for star icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Custom CSS for package cards hover effect */
+        .package-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 10px 24px rgba(34,197,94,0.15);
+        }
+        @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 3; transform: translateY(0); }
+}
+
+div {
+  animation: fadeIn 2s ease-out forwards;
+}
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.5; /* Adjust opacity for background effect */
+  pointer-events: none; /* Prevent interaction with the video */
+}
+
+
+/*loader*/
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ #bookingForm {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 30%;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      z-index: 1000;
+    }
+    
+    video {
+      
+      object-fit: cover;
+      height: 200px;
+    }
+    </style>
+</head>
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader-wrapper").style.display = "none";
+  });
+</script>
+<body>
+<!-- Navigation Bar -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-green-600">Travel Tours</a>
+        <ul class="flex space-x-6">
+            <li><a href="index.html" class="text-gray-700 hover:text-green-600">Back to Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+ 
+<main class="bg-gra-100 py-10">
+    <video autoplay muted loop playsinline id="bg-video">
+  <source src="picha/3b32ee6a38cbd510b8944ce07a0f2280.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Tour Card 1 -->
+            <div class="item bg-white rounded-xl shadow-md  transition duration-300" data-name="Maasai Mara Safari" data-charges="$450" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                <div class="relative">
+                    <img src="picha/IMG-20250202-WA0022.jpg" alt="Maasai Mara Safari" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Popular</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Maasai Mara Safari</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.9</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-day luxury safari with game drives, hot air balloon ride, and Maasai cultural experience.</p>
+                    <div class="flex justify-between items-center"  data-name="Maasai Mara" data-charges="KSh 10,000" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$450</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 2 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/IMG-20250202-WA0018.jpg" alt="Amboseli Adventure" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">New</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Amboseli Adventure</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.7</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">2-day trip with views of Mt. Kilimanjaro, elephant herds, and guided walks.</p>
+                    <div class="flex justify-between items-center"  data-name="Amboseli Adventure" data-charges="$450" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$450</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 3 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.31.32_68d8c4f7.jpg" alt="Diani Beach Escape" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-pink-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Hot Deal</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Diani Beach Escape</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.8</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">4-day beach holiday with snorkeling, dolphin tours, and luxury resorts.</p>
+                    <div class="flex justify-between items-center"  data-name="Diani Beach" data-charges="$600" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$600</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 4 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/IMG-20250202-WA0025.jpg" alt="Nairobi City Tour" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Urban</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Nairobi City Tour</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.5</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">1-day tour of Nairobi National Park, Giraffe Centre, and Karen Blixen Museum.</p>
+                    <div class="flex justify-between items-center"  data-name="Nairobi City Tour" data-charges="$120" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$120</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 5 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/IMG-20250202-WA0009.jpg" alt="Lake Nakuru Flamingos" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Wildlife</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Lake Nakuru Flamingos</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.6</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">2-day birdwatching tour with flamingos, rhinos, and scenic lake views.</p>
+                    <div class="flex justify-between items-center"  data-name="Lake Nakuru Flamingos" data-charges="$350" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$350</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 6 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.25.51_78de5b1a.jpg" alt="Samburu Wilderness" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Adventure</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Samburu Wilderness</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.7</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-day safari with unique wildlife, Samburu culture, and river views.</p>
+                    <div class="flex justify-between items-center"  data-name="Samburu Wilderness" data-charges="&450" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$450</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 7 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.25.51_be2fb0c8.jpg" alt="Tsavo Explorer" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Explorer</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Tsavo Explorer</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.6</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-day adventure in Tsavo East & West, famous for red elephants and lava flows.</p>
+                    <div class="flex justify-between items-center"  data-name="Tsavo Explorer" data-charges="$380" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$380</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 8 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/IMG-20250202-WA0017.jpg" alt="Mount Kenya Trek" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded-full text-sm font-semibold">Trekking</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Mount Kenya Trek</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.8</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">5-day trek to Point Lenana, scenic views, and alpine wildlife.</p>
+                    <div class="flex justify-between items-center"  data-name="Mount Kenya" data-charges="&700" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$700</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 9 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                     <img src="picha/WhatsApp Image 2025-06-01 at 19.25.50_8da188d5.jpg" alt="Lamu Island Retreat" class="w-full h-64 object-cover">
+                  <!-- <video autoplay loop muted playsinline>
+    <source src="picha/53c8b779d703f74188a387ef96f2ee8d.mp4" alt="Lamu Island Retreat" class="w-full h-64 object-cover" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> -->
+                    <div class="absolute top-4 right-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Relax</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Lamu Island Retreat</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.9</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-day island getaway with dhow cruises, Swahili culture, and beach relaxation.</p>
+                    <div class="flex justify-between items-center"  data-name="Lamu Island" data-charges="$500" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$500</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+            <!-- Tour Card 10 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                <div class="relative">
+                    <img src="picha/IMG-20250202-WA0010_edited-1.jpg" alt="Hell's Gate Biking" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-lime-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Active</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Hell's Gate Biking</h3>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">4.7</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">1-day biking adventure through gorges, wildlife, and hot springs.</p>
+                    <div class="flex justify-between items-center"  data-name="Hell's Gate Biking" data-charges="$200" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$200</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                       </div>
+                </div>
+            </div>
+
+            
+     <!-- WhatsApp Booking Form -->
+<div id="bookingForm" class="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-2xl p-8 z-50 w-full max-w-md border border-gray-200">
+    <h3 class="text-2xl font-bold mb-4 text-green-700 text-center">Enter Your Details</h3>
+    <div class="space-y-4">
+        <input type="text" id="clientName" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+        <input type="text" id="clientPhone" placeholder="Your Phone Number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+        <input type="email" id="clientEmail" placeholder="Your Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+    </div>
+    <div class="flex justify-between mt-6">
+        <button onclick="sendWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-lg shadow transition">Send via WhatsApp</button>
+        <button onclick="closeForm()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-6 py-2 rounded-lg shadow transition">Cancel</button>
+    </div>
+</div>
+
+ <!-- JavaScript -->
+  <script>
+    let selectedItem = {};
+
+    function openForm(button) {
+      const itemDiv = button.closest('.item');
+      selectedItem = {
+        name: itemDiv.dataset.name,
+        charges: itemDiv.dataset.charges,
+        image: itemDiv.dataset.image
+      };
+      document.getElementById('bookingForm').style.display = 'block';
+    }
+
+    function closeForm() {
+      document.getElementById('bookingForm').style.display = 'none';
+    }
+
+    function sendWhatsApp() {
+      const name = document.getElementById('clientName').value;
+      const phone = document.getElementById('clientPhone').value;
+      const email = document.getElementById('clientEmail').value;
+
+      if (!name || !phone || !email) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const adminPhone = "254785851808"; // Admin WhatsApp number
+      const message = `*New Booking Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n\n*Item:* ${selectedItem.name}\n*Charges:* ${selectedItem.charges}\n*Image:* ${selectedItem.image}`;
+
+      const whatsappURL = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+      if (confirm("Are you sure you want to submit your booking via WhatsApp?")) {
+        // Open WhatsApp with the booking message
+      window.open(whatsappURL, '_blank');
+      closeForm();}
+    }
+  </script>
+
+        </div>
+
+    </div>
+</main>
+</body>
+</html>

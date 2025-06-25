@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Journey - Ancent Tours& Hotels Blog .</title>
+    <link rel="icon" href="picha/logo-removebg-preview.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f9f9f9;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+        }
+        .about-container {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            max-width: 100%;
+            margin: auto;
+        }
+        .ceos {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .ceo {
+            flex: 1 1 220px;
+            background: #f2f7fa;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .ceo img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 12px;
+        }
+      
+        .company-info {
+            margin-top: 24px;
+        }
+        i{
+            color: navy;
+            font-family: cursive;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            
+        }
+         h2{
+            font-weight: 300;
+            color: navy;
+            font-family: cursive;
+            text-decoration: none;
+            text-align: center;
+            font-size: 50px;
+            
+        }
+        .info p{
+            text-align: center;
+            
+        }
+        /*loaders*/
+        #loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 3; transform: translateY(0); }
+}
+
+div{
+  animation: fadeIn 2s ease-out forwards;
+}
+
+    </style>
+</head>
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader-wrapper").style.display = "none";
+  });
+</script>
+
+
+<body>
+    <nav>
+        <img src="picha/logo-removebg-preview.png" alt="Logo" class="w-13 h-12 mr-2">
+        <a href="aboutus.html">&larr; Back to About Us </a>
+    </nav>
+    <div class="about-container">
+        <div class="company-info" >
+            <div class="info">
+            <h2>Our Company</h2>
+            <p>
+                Ancent Tours & Hotels  was founded in 2025 with a mission to make travel accessible, enjoyable, and inspiring for everyone. We offer curated tours, personalized itineraries, and exceptional customer service. Our dedicated team works tirelessly to ensure every trip is safe, exciting, and tailored to your needs. Join us and explore the world with confidence!
+            </p><br>
+            <p class="mission">
+                <i>Our Mission</i> is to provide unforgettable travel experiences that connect people with the beauty and diversity of Kenya. We aim to inspire wanderlust, promote sustainable tourism, and support local communities through responsible travel practices.
+            </p>
+            <p class="vision">
+                <i>Our Vision</i> is to be the leading travel company in Kenya, known for our exceptional service, innovative tours, and commitment to sustainable tourism. We strive to create a world where travel enriches lives, fosters cultural understanding, and leaves a positive impact on the environment.
+            </p><br>
+            </div>
+        <h1>Meet Our Team</h1><br>
+        <div class="ceos">
+            <div class="ceo">
+                <img src="picha/WhatsApp Image 2024-12-17 at 16.40.22_e4f53806.jpg" alt="CEO 1">
+                <h2>Anthony Chirchir</h2>
+                <p>Anthony is the visionary co-founder and CEO, with over 3 years of experience in the travel industry. He is passionate about creating unforgettable journeys for our clients.</p>
+            </div>
+            <div class="ceo">
+                <img src="picha/vin profile.jpg" alt="CEO 2">
+                <h2>Vincent Biwot</h2>
+                <p>Vincent, our co-founder and CEO, specializes in customer experience, tech, and innovation. His leadership ensures every traveler enjoys a seamless and memorable adventure.</p>
+            </div>
+            <div class="ceo">
+                <img src="picha/" alt="CEO 2">
+                <h2>Ian kosgei </h2>
+                <p>Ian is a dynamic member of our leadership team, bringing creativity and dedication to every project. With a keen eye for detail and a passion for delivering exceptional service, Ian ensures our clients enjoy unique and memorable travel experiences across Kenya.</p>
+            </div>
+        </div>
+            <p class="company-quote"><i>"Travel is not just about the destination, but the journey and the memories we create along the way."</i></p><br>
+            <h2>Why Choose Us?</h2>
+            <p>
+                At Kenya Travel, we are committed to excellence in every aspect of our service. From the moment you book with us to the time you return home, we ensure your journey is smooth, enjoyable, and enriching. Our team of travel experts is here to assist you with personalized recommendations, insider tips, and 24/7 support.
+            </p>
+        </div>
+    </div>
+        <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-green-400 mr-2"></i>
+                        <h3 class="text-2xl font-bold">Kenya<span class="text-green-400">Travels</span></h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your trusted partner for unforgettable Kenyan adventures since 2025.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-green-400 transition">Home</a></li>
+                        <li><a href="tours.html" class="text-gray-400 hover:text-green-400 transition">All Tours</a></li>
+                        <li><a href="hotels.html" class="text-gray-400 hover:text-green-400 transition">All Hotels</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-green-400 transition">All Travel Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">FAQs</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Privacy Policy</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Terms & Conditions</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Payment Methods</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">Kirinyaga Road, Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+254 701 432 460</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">info@kenyatravels.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 KenyaTravels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

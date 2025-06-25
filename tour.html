@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancent Tours& Hotels Blog - Explore Tours, Hotels & Holidays</title>
+    <link rel="icon" href="picha/logo-removebg-preview.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- In your <head> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+  scroll-behavior: smooth;
+}
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('picha/nairobi city.jp');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+        
+        .destination-card:hover .destination-overlay {
+            opacity: 1;
+        }
+        
+        .destination-overlay {
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        option{
+            color: green;
+        }
+        .whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+.about-section {
+  background-color: #fffdf5;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  color: #006400;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  height: 500px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+/*loader*/
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 3; transform: translateY(0); }
+}
+
+section {
+  animation: fadeIn 2s ease-out forwards;
+}
+#active{
+    color: green;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader-wrapper").style.display = "none";
+  });
+</script>
+
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center"><!--
+                <i class="fas fa-plane-departure text-3xl text-green-600 mr-2"></i>-->
+            <img src="picha/logo-removebg-preview.png" loading="lazy" alt="Logo" class="w-13 h-12 mr-2">
+
+                <h1 class="text-2xl font-bold text-gray-800">Ancent<span class="text-green-600"> Tours & Hotels</span></h1>
+
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="py-2 text-green-600 font-semibold">Home</a>
+            <a href="aboutus.html"class="py-2 text-gray-800 hover:text-green-600">About Us</a>
+            <a href="tour.html" id="active" class="py-2 text-gray-800 hover:text-green-600">Tours</a>
+            <a href="hotel.html" class="py-2 text-gray-800 hover:text-green-600">Hotels</a>
+            <a href="holiday.html" class="py-2 text-gray-800 hover:text-green-600">Holidays</a>
+            <a href="blogs.html" class="py-2 text-gray-800 hover:text-green-600">Blog</a>
+            <a href="contact.html" class="py-2 text-gray-800 hover:text-green-600">Contact</a>
+            <a href="gallery.html" class="py-2 text-gray-800 hover:text-green-600">Gallery</a>
+            </nav>
+           
+           <!-- <div class="hidden md:flex space-x-4 ">
+                <button class="px-4 py-2 text-green-600 border border-green-600 rounded-full hover:bg-green-600 hover:text-white transition">Login</button>
+                <button class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">Sign Up</button>
+            </div>
+            Mobile Menu -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu flex-col bg-white py-4 px-4 shadow-lg">
+            <a href="index.html" class="py-2 text-green-600 font-semibold">Home</a>
+            <a href="aboutus.html"class="py-2 text-gray-800 hover:text-green-600">About Us</a>
+            <a href="tour.html" id="active" class="py-2 text-gray-800 hover:text-green-600">Tours</a>
+            <a href="hotel.html" class="py-2 text-gray-800 hover:text-green-600">Hotels</a>
+            <a href="holiday.html" class="py-2 text-gray-800 hover:text-green-600">Holidays</a>
+            <a href="blogs.html" class="py-2 text-gray-800 hover:text-green-600">Blog</a>
+            <a href="contact.html" class="py-2 text-gray-800 hover:text-green-600">Contact</a>
+            <a href="gallery.html" class="py-2 text-gray-800 hover:text-green-600">Gallery</a>
+            <!--
+            <div class="flex space-x-4 mt-4">
+                <button class="px-4 py-2 text-green-600 border border-green-600 rounded-full hover:bg-green-600 hover:text-white transition">Login</button>
+                <button class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">Sign Up</button>
+            </div>-->
+        </div>
+    </header>
+<a href="https://wa.me/254785851808" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png"loading="lazy" alt="WhatsApp Chat">
+</a>
+
+    <!-- Featured Tours -->
+    <section id="tours" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Featured Tours</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Experience Kenya's most spectacular wildlife encounters and breathtaking landscapes with our handpicked safari tours.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tour Card 1 -->
+                <div class="package-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="picha/IMG-20250202-WA0022.jpg" alt="Maasai Mara Safari" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Popular</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Maasai Mara Safari</h3>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700">4.9</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">3-day luxury safari with game drives, hot air balloon ride, and Maasai cultural experience.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-green-600 font-bold text-xl">$450</span>
+                                <span class="text-gray-500 text-sm">/person</span>
+                            </div>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                                <a href="tours.html">Book Now</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour Card 2 -->
+                <div class="package-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="picha/IMG-20250202-WA0018.jpg" alt="Amboseli Elephant Safari" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Amboseli Elephant Safari</h3>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700">4.7</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">2-day safari with views of Mount Kilimanjaro and large elephant herds in their natural habitat.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-green-600 font-bold text-xl">$320</span>
+                                <span class="text-gray-500 text-sm">/person</span>
+                            </div>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                                <a href="tours.html">Book Now</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour Card 3 -->
+                <div class="package-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="picha/WhatsApp Image 2025-06-01 at 19.31.32_68d8c4f7.jpg" alt="Diani Beach Escape" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">New</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Diani Beach Escape</h3>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700">4.8</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">5-day beach holiday with snorkeling, dolphin watching, and sunset dhow cruises.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span  class="text-green-600 font-bold text-xl">$580</span>
+                                <span class="text-gray-500 text-sm">/person</span>
+                            </div>
+                            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"><a href="tours.html">Book Now</a>
+                                
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="px-6 py-3 border-2 border-green-600 text-green-600 rounded-full font-semibold hover:bg-green-600 hover:text-white transition">
+                     <a href="tours.html">View All Tours</a> <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Popular Destinations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">From wildlife-rich savannas to pristine beaches, Kenya offers diverse experiences for every traveler.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Destination 1 -->
+                <div class="destination-card relative rounded-xl overflow-hidden h-64">
+                    <img src="picha/IMG-20250202-WA0022.jpg" alt="Maasai Mara" class="w-full h-full object-cover">
+                    <div class="destination-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Maasai Mara</h3>
+                            <p class="text-sm mb-3">World-famous wildlife reserve</p>
+                            <button class="px-4 py-2 bg-green-600 rounded-full text-sm font-semibold hover:bg-green-700" onclick="showDestinationDetails('maasai-mara')">Explore</button>
+                        </div>
+                    </div>
+                    <div id="details-maasai-mara" class="hidden absolute bottom-0 left-0 right-0 bg-white bg-opacity-95 p-4 rounded-t-xl shadow-xl z-10">
+                        <h4 class="text-lg font-semibold mb-2 text-gray-800">More About Maasai Mara</h4>
+                        <p class="text-sm text-gray-700">
+                            The Maasai Mara is Kenya's premier wildlife reserve, famous for the Great Migration and abundant big cats. Experience breathtaking landscapes and authentic Maasai culture.
+                        </p>
+                        <button class="mt-3 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-xs" onclick="hideDestinationDetails('maasai-mara')">Close</button>
+                    </div>
+                </div>
+                
+                <!-- Destination 2 -->
+                <div class="destination-card relative rounded-xl overflow-hidden h-64">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.31.32_68d8c4f7.jpg" alt="Diani Beach" class="w-full h-full object-cover">
+                    <div class="destination-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Diani Beach</h3>
+                            <p class="text-sm mb-3">Pristine white sand beaches</p>
+                            <button class="px-4 py-2 bg-green-600 rounded-full text-sm font-semibold hover:bg-green-700" onclick="showDestinationDetails('diani-beach')">Explore</button>
+                        </div>
+                    </div>
+                    <div id="details-diani-beach" class="hidden absolute bottom-0 left-0 right-0 bg-white bg-opacity-95 p-4 rounded-t-xl shadow-xl z-10">
+                        <h4 class="text-lg font-semibold mb-2 text-gray-800">More About Diani Beach</h4>
+                        <p class="text-sm text-gray-700">
+                            Diani Beach is renowned for its powdery white sands, turquoise waters, and vibrant marine life. Perfect for relaxation, water sports, and luxury resorts.
+                        </p>
+                        <button class="mt-3 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-xs" onclick="hideDestinationDetails('diani-beach')">Close</button>
+                    </div>
+                </div>
+                
+                <!-- Destination 3 -->
+                <div class="destination-card relative rounded-xl overflow-hidden h-64">
+                    <img src="picha/IMG-20250202-WA0018.jpg" alt="Amboseli" class="w-full h-full object-cover">
+                    <div class="destination-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Amboseli</h3>
+                            <p class="text-sm mb-3">Elephants with Kilimanjaro views</p>
+                            <button class="px-4 py-2 bg-green-600 rounded-full text-sm font-semibold hover:bg-green-700" onclick="showDestinationDetails('amboseli')">Explore</button>
+                        </div>
+                    </div>
+                    <div id="details-amboseli" class="hidden absolute bottom-0 left-0 right-0 bg-white bg-opacity-95 p-4 rounded-t-xl shadow-xl z-10">
+                        <h4 class="text-lg font-semibold mb-2 text-gray-800">More About Amboseli</h4>
+                        <p class="text-sm text-gray-700">
+                            Amboseli National Park is famous for its large elephant herds and stunning views of Mount Kilimanjaro. A photographer's paradise and a must-visit for wildlife lovers.
+                        </p>
+                        <button class="mt-3 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-xs" onclick="hideDestinationDetails('amboseli')">Close</button>
+                    </div>
+                </div>
+                
+                <!-- Destination 4 -->
+                <div class="destination-card relative rounded-xl overflow-hidden h-64">
+                    <img src="picha/IMG-20250202-WA0009.jpg" alt="Lake Nakuru" class="w-full h-full object-cover">
+                    <div class="destination-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-bold mb-2">Lake Nakuru</h3>
+                            <p class="text-sm mb-3">Flamingo paradise</p>
+                            <button class="px-4 py-2 bg-green-600 rounded-full text-sm font-semibold hover:bg-green-700" onclick="showDestinationDetails('lake-nakuru')">Explore</button>
+                        </div>
+                    </div>
+                    <div id="details-lake-nakuru" class="hidden absolute bottom-0 left-0 right-0 bg-white bg-opacity-95 p-4 rounded-t-xl shadow-xl z-10">
+                        <h4 class="text-lg font-semibold mb-2 text-gray-800">More About Lake Nakuru</h4>
+                        <p class="text-sm text-gray-700">
+                            Lake Nakuru National Park is a bird watcher's paradise, famous for its flamingos, rhinos, and scenic beauty. Located in the Great Rift Valley, it's one of Kenya's most iconic parks.
+                        </p>
+                        <button class="mt-3 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-xs" onclick="hideDestinationDetails('lake-nakuru')">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        function showDestinationDetails(id) {
+            // Hide all details first
+            document.querySelectorAll('[id^="details-"]').forEach(el => el.classList.add('hidden'));
+            // Show the selected one
+            document.getElementById('details-' + id).classList.remove('hidden');
+        }
+        function hideDestinationDetails(id) {
+            document.getElementById('details-' + id).classList.add('hidden');
+        }
+        </script>
+    </section>
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 md:p-10">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Get Travel Inspiration</h3>
+                    <p class="text-gray-600">Subscribe to our newsletter for exclusive deals, travel tips, and Kenya destination highlights.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <form id="newsletterForm" class="flex flex-col sm:flex-row">
+                        <input type="email" name="user_email" required placeholder="Your email address" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg mb-2 sm:mb-0 sm:mr-2 focus:outline-none focus:ring-2 focus:ring-green-600">
+                        <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                            Subscribe
+                        </button>
+                    </form>
+                    <div id="newsletterSuccess" class="mt-4 text-green-600 font-semibold hidden">
+                        Subscription successful! Thank you for joining our newsletter.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("fmfxl4-NNWiZFfxVY"); // Replace with your EmailJS public key
+    })();
+
+    document.getElementById("newsletterForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_c0kg5tk", "template_uqss346", this)
+            .then(function() {
+                document.getElementById("newsletterSuccess").classList.remove("hidden");
+            }, function(error) {
+                alert("Failed to send email: " + JSON.stringify(error));
+            });
+
+        this.reset();
+    });
+</script>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Contact Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions about planning your Kenyan adventure? Our travel experts are here to help.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <form class="space-y-6" id="whatsappForm"  >
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                                <input type="text" required id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                                <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                            </div>
+                            <div>
+                                <label for="tel" class="block text-gray-700 font-semibold mb-2">Phone</label>
+                                <input type="number" id="tel" placeholder="phone e.g:+254712345678" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-semibold mb-2">Subject</label>
+                            <input type="text" required id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                            <textarea id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition font-semibold" onclick="sendToWhatsApp(event)">
+                            Send Via WhatsApp
+                        </button>
+                        <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const tel = document.getElementById("tel").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const phone = "254785851808"; // your WhatsApp number
+      const text =`Hello, I'm ${name}.\nEmail: ${email} \nPhone:${tel} \nSubject:${subject}\nMessage: ${message}`;
+      const encodedText = encodeURIComponent(text);
+      const url = `https://wa.me/${phone}?text=${encodedText}`;
+
+      window.open(url, "_blank");
+    }
+  </script>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-50 p-8 rounded-xl">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Our Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Address</h4>
+                                    <p class="text-gray-600"><a href="https://www.google.com/maps/place/Kirinyaga+Road,+Nairobi,+Kenya/" target="_blank"> View Kirinyaga Road, Nairobi on Map</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Phone</h4>
+                                    <p class="text-gray-600" ><a href="tel:+254701432460">+254 701 432 460</a></p>
+                                    <p class="text-gray-600"><a href="tel:+254111454073">+254 111 454 073</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Email</h4>
+                                    <p class="text-gray-600"> <a href="mailto:info@kenyatravels.com">info@kenyatravels.com</a></p>
+                                    <p class="text-gray-600"><a href="mailto:bookings@kenyatravels.com">bookings@kenyatravels.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Working Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
+                                    <p class="text-gray-600">Contact Us At Any Time</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-200 p-3 rounded-full hover:bg-green-600 hover:text-white transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 p-3 rounded-full hover:bg-green-600 hover:text-white transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.instagram.com/vin_chirchir" class="bg-gray-200 p-3 rounded-full hover:bg-green-600 hover:text-white transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 p-3 rounded-full hover:bg-green-600 hover:text-white transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-plane-departure text-3xl text-green-400 mr-2"></i>
+                        <h3 class="text-2xl font-bold">Kenya<span class="text-green-400">Travels</span></h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your trusted partner for unforgettable Kenyan adventures since 2025.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-green-400 transition">Home</a></li>
+                        <li><a href="aboutus.html" class="text-gray-400 hover:text-green-400 transition">About Us</a></li>
+                        <li><a href="tour.html" class="text-gray-400 hover:text-green-400 transition">Tours</a></li>
+                        <li><a href="hotel.html" class="text-gray-400 hover:text-green-400 transition">Hotels</a></li>
+                        <li><a href="holiday.html" class="text-gray-400 hover:text-green-400 transition">Holiday Packages</a></li>
+                        <li><a href="blogs.html" class="text-gray-400 hover:text-green-400 transition">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-green-400 transition">Contact Us</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-green-400 transition">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">FAQs</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Privacy Policy</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Terms & Conditions</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Payment Methods</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-green-400 transition">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">Kirinyaga Road, Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+254 701 432 460</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">info@kenyatravels.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 KenyaTravels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+     
+
+</body>
+</html>

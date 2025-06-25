@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Holiday Packages</title>
+    <link rel="icon" href="picha/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 3; transform: translateY(0); }
+        }
+
+        div {
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        /* Loader styles */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Responsive grid for packages */
+        #packages {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 1024px) {
+            #packages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader-wrapper").style.display = "none";
+  });
+</script>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8 px-4">
+        <button onclick="window.location.href='index.html'" class="mb-6 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+            &larr; Back to Home
+        </button>
+        <h1 class="text-3xl font-bold mb-8 text-center">Holiday Packages</h1>
+        <section class="space-y-8" id="packages">
+            <!-- Package 1 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Maasai Mara Safari" data-charges="$650" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/IMG-20250202-WA0022.jpg" alt="Maasai Mara Safari" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Maasai Mara Safari</h3>
+                        <div class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold">Wildlife</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.8 (120 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-day safari adventure in the world-famous Maasai Mara, including game drives and cultural visits.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Big Five game drives</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Maasai village visit</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> All meals included</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Luxury tented camp</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$650</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 2 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Mount Kenya Trek" data-charges="$850" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/IMG-20250202-WA0017.jpg" alt="Mount Kenya Trek" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Mount Kenya Trek</h3>
+                        <div class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold">Adventure</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">5.0 (89 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">5-day trekking adventure to Point Lenana (4,985m) on Mount Kenya with experienced guides and porters.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Scenic Sirimon route up, Chogoria route down</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> All meals and accommodation during trek</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Sunrise summit attempt</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> 1-night hotel before/after trek</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$850</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 3 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Diani Beach Escape" data-charges="$750" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.31.32_68d8c4f7.jpg" alt="Diani Beach Escape" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Diani Beach Escape</h3>
+                        <div class="bg-pink-100 text-pink-800 px-2 py-1 rounded-full text-xs font-semibold">Relaxation</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.0 (60 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">4-night stay at a luxury beach resort in Diani, with spa treatments and water sports included.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Oceanfront rooms</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Daily breakfast & dinner</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Free kayaking & snorkeling</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> 1 spa treatment</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$750</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 4 -->
+           <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Amboseli Elephant Safari" data-charges="$550" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/IMG-20250202-WA0018.jpg" alt="Amboseli Elephant Safari" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Amboseli Elephant Safari</h3>
+                        <div class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-semibold">Wildlife</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">5.0 (75 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">2-night safari in Amboseli National Park, famous for its large elephant herds and views of Kilimanjaro.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Guided game drives</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Sundowner experience</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> All park fees included</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Kilimanjaro views</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$550</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 5 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Lamu Island Retreat" data-charges="$640" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.25.50_8da188d5.jpg" alt="Lamu Island Retreat" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Lamu Island Retreat</h3>
+                        <div class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-semibold">Culture</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.7 (45 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-night stay in historic Lamu town, with dhow cruises and Swahili cuisine experiences.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Dhow sunset cruise</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Guided town tour</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Swahili cooking class</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Boutique hotel stay</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$640</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 6 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Tsavo Explorer" data-charges="$620" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.25.51_be2fb0c8.jpg" alt="Tsavo Explorer" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Tsavo Explorer</h3>
+                        <div class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold">Adventure</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.0 (38 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-day safari in Tsavo East and West, exploring vast savannahs and red elephants.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Visit Mzima Springs</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Game drives in both parks</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> All meals included</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Comfortable lodges</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$620</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 7 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Nairobi City Tour" data-charges="$160" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/IMG-20250202-WA0025.jpg" alt="Nairobi City Tour" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Nairobi City Tour</h3>
+                        <div class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">Urban</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.0 (50 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">1-day guided city tour including Nairobi National Museum, Giraffe Centre, and Karen Blixen Museum.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> All entrance fees</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Lunch at local restaurant</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Hotel transfers</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Professional guide</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$160</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 8 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Lake Nakuru Birding" data-charges="$390" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/IMG-20250202-WA0009.jpg" alt="Lake Nakuru Birding" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Lake Nakuru Birding</h3>
+                        <div class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold">Nature</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.0 (32 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">2-day birdwatching tour at Lake Nakuru National Park, home to flamingos and rhinos.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Birdwatching walks</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Game drive</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Park fees included</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Overnight at lodge</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$390</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 9 -->
+           <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Samburu Cultural Safari" data-charges="$590" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/WhatsApp Image 2025-06-01 at 19.25.51_78de5b1a.jpg" alt="Samburu Cultural Safari" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Samburu Cultural Safari</h3>
+                        <div class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-semibold">Culture</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.0 (28 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">3-day safari in Samburu, with unique wildlife and immersive Samburu village experience.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Samburu village visit</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Game drives</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> All meals included</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Comfortable lodge</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$590</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package 10 -->
+            <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="holiday: Aberdare Forest Adventure" data-charges="$530" data-image="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80">
+                <div class="md:w-2/2">
+                    <img src="picha/IMG-20250202-WA0015.jpg" alt="Aberdare Forest Adventure" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:w-2/2">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-800">Aberdare Forest Adventure</h3>
+                        <div class="bg-teal-100 text-teal-800 px-2 py-1 rounded-full text-xs font-semibold">Nature</div>
+                    </div>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span class="ml-2 text-gray-700 text-sm">4.0 (22 reviews)</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">2-night adventure in Aberdare National Park, with forest walks and wildlife viewing from tree lodges.</p>
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Highlights:</h4>
+                        <ul class="text-gray-600 text-sm space-y-1">
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Forest walks</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Night wildlife viewing</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> All meals included</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i> Unique tree lodge stay</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-green-600 font-bold text-xl">$530</span>
+                            <span class="text-gray-500 text-sm">/person</span>
+                        </div>
+                        <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                    </div>
+                </div>
+            </section>
+              <!-- WhatsApp Booking Form -->
+<div id="bookingForm" class="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-2xl p-8 z-50 w-full max-w-md border border-gray-200">
+    <h3 class="text-2xl font-bold mb-4 text-green-700 text-center">Enter Your Details</h3>
+    <div class="space-y-4">
+        <input type="text" id="clientName" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+        <input type="text" id="clientPhone" placeholder="Your Phone Number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+        <input type="email" id="clientEmail" placeholder="Your Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+    </div>
+    <div class="flex justify-between mt-6">
+        <button onclick="sendWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-lg shadow transition">Send via WhatsApp</button>
+        <button onclick="closeForm()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-6 py-2 rounded-lg shadow transition">Cancel</button>
+    </div>
+</div>
+
+ <!-- JavaScript -->
+  <script>
+    let selectedItem = {};
+
+    function openForm(button) {
+      const itemDiv = button.closest('.item');
+      selectedItem = {
+        name: itemDiv.dataset.name,
+        charges: itemDiv.dataset.charges,
+        image: itemDiv.dataset.image
+      };
+      document.getElementById('bookingForm').style.display = 'block';
+    }
+
+    function closeForm() {
+      document.getElementById('bookingForm').style.display = 'none';
+    }
+
+    function sendWhatsApp() {
+      const name = document.getElementById('clientName').value;
+      const phone = document.getElementById('clientPhone').value;
+      const email = document.getElementById('clientEmail').value;
+
+      if (!name || !phone || !email) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const adminPhone = "254785851808"; // Admin WhatsApp number
+      const message = `*New Booking Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n\n*Item:* ${selectedItem.name}\n*Charges:* ${selectedItem.charges}\n*Image:* ${selectedItem.image}`;
+
+      const whatsappURL = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+      closeForm();
+    }
+  </script>
+
+        </div>
+    </div>
+</body>
+</html></div>

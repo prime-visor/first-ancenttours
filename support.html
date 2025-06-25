@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support - Ancent Tours& Hotels Blog</title>
+    <link rel="icon" href="picha/logo-removebg-preview.png" type="image/x-icon">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background: #f9f9f9; }
+        h1 { color: #2c3e50; }
+        section { background: #fff; padding: 20px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 6px #eee; }
+        h2 { color: #2980b9; }
+        details { margin-bottom: 10px; }
+        summary { font-weight: bold; cursor: pointer; }
+        ul { margin: 0; padding-left: 20px; }
+        @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 3; transform: translateY(0); }
+        }
+
+        div {
+        animation: fadeIn 2s ease-out forwards;
+        }
+        /*loader*/
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader-wrapper").style.display = "none";
+  });
+</script>
+<body>
+    <h1>Support</h1>
+
+    <section>
+        <h2>FAQs</h2>
+        <details>
+            <summary>How do I book a tour?</summary>
+            <p>You can book a tour directly on our website by selecting your preferred destination and following the booking instructions.</p>
+        </details>
+        <details>
+            <summary>What payment methods are accepted?</summary>
+            <p>We accept M-PESA, Airtel Money and bank transfers. See below for more details.</p>
+        </details>
+        <details>
+            <summary>Can I cancel or modify my booking?</summary>
+            <p>Yes, you can cancel or modify your booking according to our cancellation policy.</p>
+        </details>
+        <details>
+            <summary>How do I contact customer support?</summary>
+            <p>You can reach us via email at support@ancenttours.com or call us at +254701432460.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Privacy Policy</h2>
+        <p>
+            We respect your privacy and are committed to protecting your personal information. We collect only necessary data to process your bookings and improve our services. Your information is never shared with third parties without your consent. For more details, please read our full privacy policy on our website.
+        </p>
+    </section>
+
+    <section>
+        <h2>Terms &amp; Conditions</h2>
+        <ul>
+            <li>All bookings are subject to availability.</li>
+            <li>Prices are subject to change without prior notice.</li>
+            <li>By booking a tour, you agree to abide by our policies and guidelines.</li>
+            <li>For complete terms, please refer to our official Terms &amp; Conditions page.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Payment Methods</h2>
+        <ul>
+            <!--<li>PayPal</li>-->
+            <li>Bank Transfer</li>
+            <li>Mpesa</li>
+            <li>Cash on Arrival (for local tours)</li>
+            <li>Mobile Money (Airtel Money)</li>
+        </ul>
+        <p>All payments are processed securely. Please ensure your payment details are correct before confirming your booking.</p>
+    </section>
+
+    <section>
+        <h2>Cancellation Policy</h2>
+        <ul>
+            <li>Cancellations made 7 days before the tour date are eligible for a full refund.</li>
+            <li>Cancellations made within 7 days of the tour date may incur a cancellation fee.</li>
+            <li>No-shows are non-refundable.</li>
+            <li>For more information, please contact our support team.</li>
+        </ul>
+    </section>
+</body>
+</html>

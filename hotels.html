@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotels - Travel Tours</title>
+    <link rel="icon" href="picha/logo-removebg-preview.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+     <script src="script.js"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 3; transform: translateY(0); }
+}
+
+div {
+  animation: fadeIn 2s ease-out forwards;
+}
+/*loader*/
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader-wrapper").style.display = "none";
+  });
+</script>
+<body class="bg-gray-100">
+    <!-- Navigation Button -->
+    <nav class="bg-white shadow p-4 flex justify-between items-center mb-8">
+        <a href="index.html" class="text-green-600 font-bold text-lg flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Home
+        </a>
+        <span class="font-semibold text-gray-700 text-xl">Hotel Listings</span>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Hotel 1 -->
+        <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="Mara Serena Lodge" data-charges="$350" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+            <div class="relative">
+                <img src="picha/WhatsApp Image 2025-05-25 at 18.28.59_aa353080.jpg" alt="Mara Serena Lodge" class="w-full h-64 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                        <span class="text-white text-sm">Maasai Mara</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Mara Serena Lodge</h3>
+                <div class="flex items-center text-yellow-400 mb-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="ml-2 text-gray-700 text-sm">5-star luxury</span>
+                </div>
+                <p class="text-gray-600 mb-4">Perched on a hill with panoramic views of the Mara, offering luxury tents and exceptional game viewing.</p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-green-600 font-bold text-xl">$350</span>
+                        <span class="text-gray-500 text-sm">/night</span>
+                    </div>
+                    <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hotel 2 -->
+        <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="Diani Sea Resort" data-charges="$250" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Diani Sea Resort" class="w-full h-64 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                        <span class="text-white text-sm">Diani Beach</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Diani Sea Resort</h3>
+                <div class="flex items-center text-yellow-400 mb-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="ml-2 text-gray-700 text-sm">4.5-star</span>
+                </div>
+                <p class="text-gray-600 mb-4">Beachfront paradise with palm-fringed gardens, spa facilities, and water sports activities.</p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-green-600 font-bold text-xl">$250</span>
+                        <span class="text-gray-500 text-sm">/night</span>
+                    </div>
+                    <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel 3 -->
+        <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="Sarova Stanley" data-charges="$230" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Sarova Stanley" class="w-full h-64 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                        <span class="text-white text-sm">Nairobi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Sarova Stanley</h3>
+                <div class="flex items-center text-yellow-400 mb-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="ml-2 text-gray-700 text-sm">5-star classic</span>
+                </div>
+                <p class="text-gray-600 mb-4">Historic luxury hotel in the heart of Nairobi, featuring elegant rooms and fine dining.</p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-green-600 font-bold text-xl">$230</span>
+                        <span class="text-gray-500 text-sm">/night</span>
+                    </div>
+                    <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel 4 -->
+        <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="Lake Naivasha Sopa Resort" data-charges="$190" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Lake Naivasha Sopa Resort" class="w-full h-64 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                        <span class="text-white text-sm">Lake Naivasha</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Lake Naivasha Sopa Resort</h3>
+                <div class="flex items-center text-yellow-400 mb-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="ml-2 text-gray-700 text-sm">4-star comfort</span>
+                </div>
+                <p class="text-gray-600 mb-4">Set in lush gardens by the lake, perfect for relaxation and bird watching.</p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-green-600 font-bold text-xl">$190</span>
+                        <span class="text-gray-500 text-sm">/night</span>
+                    </div>
+                    <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel 5 -->
+        <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="Amboseli Serena Safari Lodge" data-charges="$190" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1519821172143-ecb1df1a9b1b?auto=format&fit=crop&w=800&q=80" alt="Amboseli Serena Safari Lodge" class="w-full h-64 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                        <span class="text-white text-sm">Amboseli</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Amboseli Serena Safari Lodge</h3>
+                <div class="flex items-center text-yellow-400 mb-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="ml-2 text-gray-700 text-sm">4-star safari</span>
+                </div>
+                <p class="text-gray-600 mb-4">Nestled in the shadow of Mt. Kilimanjaro, offering stunning views and wildlife experiences.</p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-green-600 font-bold text-xl">$190</span>
+                        <span class="text-gray-500 text-sm">/night</span>
+                    </div>
+                    <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel 6 -->
+        <div class="item bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-name="Voyager Beach Resort" data-charges="$150" data-image="https://yourdomain.com/picha/IMG-20250202-WA0022.jpg">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Voyager Beach Resort" class="w-full h-64 object-cover">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                        <span class="text-white text-sm">Mombasa</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Voyager Beach Resort</h3>
+                <div class="flex items-center text-yellow-400 mb-3">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="ml-2 text-gray-700 text-sm">3.5-star family</span>
+                </div>
+                <p class="text-gray-600 mb-4">Family-friendly resort with themed entertainment, pools, and direct beach access.</p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <span class="text-green-600 font-bold text-xl">$150</span>
+                        <span class="text-gray-500 text-sm">/night</span>
+                    </div>
+                    <button onclick="openForm(this)" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            Book via whatsapp Now
+                        </button>
+                </div>
+            </div>
+        </div>
+         <!-- WhatsApp Booking Form -->
+<div id="bookingForm" class="fixed top-1/4 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-2xl p-8 z-50 w-full max-w-md border border-gray-200">
+    <h3 class="text-2xl font-bold mb-4 text-green-700 text-center">Enter Your Details</h3>
+    <div class="space-y-4">
+        <input type="text" id="clientName" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+        <input type="text" id="clientPhone" placeholder="Your Phone Number" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+        <input type="email" id="clientEmail" placeholder="Your Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+    </div>
+    <div class="flex justify-between mt-6">
+        <button onclick="sendWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-lg shadow transition">Send via WhatsApp</button>
+        <button onclick="closeForm()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-6 py-2 rounded-lg shadow transition">Cancel</button>
+    </div>
+</div>
+
+ <!-- JavaScript -->
+  <script>
+    let selectedItem = {};
+
+    function openForm(button) {
+      const itemDiv = button.closest('.item');
+      selectedItem = {
+        name: itemDiv.dataset.name,
+        charges: itemDiv.dataset.charges,
+        image: itemDiv.dataset.image
+      };
+      document.getElementById('bookingForm').style.display = 'block';
+    }
+
+    function closeForm() {
+      document.getElementById('bookingForm').style.display = 'none';
+    }
+
+    function sendWhatsApp() {
+      const name = document.getElementById('clientName').value;
+      const phone = document.getElementById('clientPhone').value;
+      const email = document.getElementById('clientEmail').value;
+
+      if (!name || !phone || !email) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const adminPhone = "254785851808"; // Admin WhatsApp number
+      const message = `*New Booking Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n\n*Item:* ${selectedItem.name}\n*Charges:* ${selectedItem.charges}\n*Image:* ${selectedItem.image}`;
+
+      const whatsappURL = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+      closeForm();
+    }
+  </script>

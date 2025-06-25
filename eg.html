@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Animated Counters</title>
+</head>
+<body>
+
+<div style="text-align:center; margin-top:100vh;">
+
+  <div 
+    class="counter-box" 
+    style="display:inline-block; text-align:center; padding:20px; margin:20px; border:2px solid #4CAF50; border-radius:10px; width:200px; transition:0.3s;">
+    
+    <div class="number" data-target="5" style="font-size:2.5rem; color:#4CAF50; font-weight:bold;">0</div>
+    <p>Years of Experience</p>
+  </div>
+
+  <div 
+    class="counter-box" 
+    style="display:inline-block; text-align:center; padding:20px; margin:20px; border:2px solid #4CAF50; border-radius:10px; width:200px; transition:0.3s;">
+    
+    <div class="number" data-target="1200" style="font-size:2.5rem; color:#4CAF50; font-weight:bold;">0</div>
+    <p>Successful Rides</p>
+  </div>
+
+  <div 
+    class="counter-box" 
+    style="display:inline-block; text-align:center; padding:20px; margin:20px; border:2px solid #4CAF50; border-radius:10px; width:200px; transition:0.3s;">
+    
+    <div class="number" data-target="950" style="font-size:2.5rem; color:#4CAF50; font-weight:bold;">0</div>
+    <p>Happy Clients</p>
+  </div>
+
+</div>
+
+<script>
+function animateNumber(el) {
+  const target = +el.getAttribute('data-target');
+  const duration = 1000;
+  const stepTime = 20;
+  let count = 0;
+  const increment = Math.ceil(target / (duration / stepTime));
+
+  const interval = setInterval(() => {
+    count += increment;
+    if (count >= target) {
+      el.textContent = target;
+      clearInterval(interval);
+    } else {
+      el.textContent = count;
+    }
+  }, stepTime);
+}
+
+// Intersection Observer to detect scroll into view
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const number = entry.target.querySelector('.number');
+      if (number.dataset.animated !== "true") {
+        number.dataset.animated = "true";
+        animateNumber(number);
+      }
+    }
+  });
+}, {
+  threshold: 0.6
+});
+
+document.querySelectorAll('.counter-box').forEach(box => {
+  observer.observe(box);
+});
+</script>
+
+</body>
+</html>
