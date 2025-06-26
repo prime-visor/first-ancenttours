@@ -1,16 +1,12 @@
 <?php
 require("config.php");
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    </section meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ancent Tours& Hotels Blog - Explore Tours, Hotels & Holidays</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancent Tours& Hotels - Explore Tours, Hotels & Holidays :KENYA</title>
     <link rel="icon" href="picha/logo-removebg-preview.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js"></script>
@@ -22,8 +18,10 @@ require("config.php");
   scroll-behavior: smooth;
 }
 #home{
+    background-color: #f3f4f6;
     margin-top: 97px;
 }
+
         .hero-bg {
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('picha/nairobi city.jp');
             background-size: cover;
@@ -184,48 +182,17 @@ section {
   });
 </script>
 
-
 <body class="font-sans bg-gray-50">
+    <!-- booking button -->
+<a href="book.html" 
+   target="_blank" 
+   style="position:fixed;bottom:20px;right:20px;background-color:#0e9210;color:white;padding:12px 20px;border-radius:30px;font-weight:bold;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);z-index:999;">
+   🧾BOOK HERE
+</a>
+
     <!-- Header/Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-50" id="navbar">
-        <script>
-let lastScrollTop = 0;
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", function() {
-  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (currentScroll > lastScrollTop) {
-    // Scrolling down
-    navbar.classList.add("hide-navbar");
-  } else {
-    // Scrolling up
-    navbar.classList.remove("hide-navbar");
-  }
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative scroll
-}, false);
-</script>
-
-     
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center"><!--
-                <i class="fas fa-plane-departure text-3xl text-green-600 mr-2"></i>-->
-            <img src="picha/logo-removebg-preview.png" loading="lazy" alt="Logo" class="w-13 h-12 mr-2">
-
-                <h1 class="text-2xl font-bold text-gray-800">Ancent<span class="text-green-600"> Tours & Hotels</span></h1>
-
-            </div>
-            
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" id="active" class="py-2 text-green-600 font-semibold">Home</a>
-            <a href="aboutus.html"class="py-2 text-gray-800 hover:text-green-600">About Us</a>
-            <a href="tour.html" class="py-2 text-gray-800 hover:text-green-600">Tours</a>
-            <a href="hotel.html" class="py-2 text-gray-800 hover:text-green-600">Hotels</a>
-            <a href="holiday.html" class="py-2 text-gray-800 hover:text-green-600">Holidays</a>
-            <a href="blogs.html" class="py-2 text-gray-800 hover:text-green-600">Blog</a>
-            <a href="contact.html" class="py-2 text-gray-800 hover:text-green-600">Contact</a>
-            <a href="gallery.html" class="py-2 text-gray-800 hover:text-green-600">Gallery</a>
-             <!-- Add this inside <body> just after <header> -->
+      <!-- Google Translator <body> just after <header> -->
 <div id="google_translate_element" class="w-full flex justify-end p-2 bg-gray-100"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
@@ -235,10 +202,14 @@ window.addEventListener("scroll", function() {
     }, 'google_translate_element');
   }
 </script>
+
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            </nav>
-           <button id="theme-toggle" class="ml-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 transition md:ml-0" title="Toggle Dark/Light Mode">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center"><!--
+                <i class="fas fa-plane-departure text-3xl text-green-600 mr-2"></i>-->
+                <!-- Add this toggle button inside your <header> nav bar, after the navigation links -->
+<button id="theme-toggle" class="ml-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 transition md:ml-0" title="Toggle Dark/Light Mode">
     <i id="theme-toggle-icon" class="fas fa-moon"></i>
 </button>
 
@@ -304,6 +275,23 @@ window.addEventListener("scroll", function() {
     /* Add more as needed for your design */
 </style>
 
+            <img src="picha/logo-removebg-preview.png" loading="lazy" alt="Logo" class="w-13 h-12 mr-2">
+
+                <h1 class="text-2xl font-bold text-gray-800">Ancent<span class="text-green-600"> Tours & Hotels</span></h1>
+
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" id="active" class="py-2 text-green-600 font-semibold">Home</a>
+            <a href="aboutus.html"class="py-2 text-gray-800 hover:text-green-600">About Us</a>
+            <a href="tour.html" class="py-2 text-gray-800 hover:text-green-600">Tours</a>
+            <a href="hotel.html" class="py-2 text-gray-800 hover:text-green-600">Hotels</a>
+            <a href="holiday.html" class="py-2 text-gray-800 hover:text-green-600">Holidays</a>
+            <a href="blogs.html" class="py-2 text-gray-800 hover:text-green-600">Blog</a>
+            <a href="contact.html" class="py-2 text-gray-800 hover:text-green-600">Contact</a>
+            <a href="gallery.html" class="py-2 text-gray-800 hover:text-green-600">Gallery</a>
+            </nav>
+           
            <!-- <div class="hidden md:flex space-x-4 ">
                 <button class="px-4 py-2 text-green-600 border border-green-600 rounded-full hover:bg-green-600 hover:text-white transition">Login</button>
                 <button class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">Sign Up</button>
@@ -316,31 +304,6 @@ window.addEventListener("scroll", function() {
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu flex-col bg-white py-4 px-4 shadow-lg">
-            <!-- Place this where you want the language selector to appear -->
-<div id="google_translate_element" class="w-full flex justify-end p-2 bg-gray-100"></div>
-
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-    }, 'google_translate_element');
-  }
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-             <!-- Add this inside <body> just after <header> -
-<div id="google_translate_element" class="w-full flex justify-end p-2 bg-gray-100"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-    }, 'google_translate_element');
-  }-->
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
             <a href="index.html"  id="active"class="py-2 text-green-600 font-semibold">Home</a>
             <a href="aboutus.html"class="py-2 text-gray-800 hover:text-green-600">About Us</a>
             <a href="tour.html" class="py-2 text-gray-800 hover:text-green-600">Tours</a>
@@ -354,11 +317,27 @@ window.addEventListener("scroll", function() {
                 <button class="px-4 py-2 text-green-600 border border-green-600 rounded-full hover:bg-green-600 hover:text-white transition">Login</button>
                 <button class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">Sign Up</button>
             </div>-->
-            
         </div>
-        
     </header>
-   <!-- Hero Section -->
+    <script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // Scrolling down
+      navbar.style.top = "-70px";
+    } else {
+      // Scrolling up
+      navbar.style.top = "0";
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
+</script>
+
+    <!-- Hero Section -->
     <section id="home" class="hero-bg flex items-center text-white">
         <video autoplay muted loop playsinline id="bg-video">
   <source src="picha/53c8b779d703f74188a387ef96f2ee8d.mp4"loading="lazy" type="video/mp4">
@@ -481,7 +460,7 @@ window.addEventListener("scroll", function() {
         </script>
 
     </section>
-<a href="https://wa.me/254785851808" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+<a href="https://wa.me/254785851808?text=Hello%20Ancent,%20I%20need%20help%20with%20Ancent%20Tours%20and%20Hotels." class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
     <img src="https://img.icons8.com/color/48/000000/whatsapp.png"loading="lazy" alt="WhatsApp Chat">
 </a>
 <section id="about" class="about-section">
@@ -505,11 +484,11 @@ window.addEventListener("scroll", function() {
     </div>
     <div class="text-center mt-10">
                 <button class="px-6 py-3 border-2 border-green-600 text-green-600 rounded-full font-semibold hover:bg-green-600 hover:text-white transition">
-                     <!-- <a href="about.html">-->Explore more about us</a> <i class="fas fa-arrow-right ml-2"></i>
+                     <a href="about.html">Explore more about us</a> <i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
   </div>
- <!-- Animated Counters Section -->
+ <!-- Counter Section -->
 
 <div style="text-align:center; margin-top:10vh;">
 
@@ -526,15 +505,15 @@ window.addEventListener("scroll", function() {
     style="display:inline-block; text-align:center; padding:20px; margin:20px; border:2px solid #4CAF50; border-radius:10px; width:200px; transition:0.3s;">
     
     <div class="number" data-target="200" style="font-size:2.5rem; color:#4CAF50; font-weight:bold;">0</div>
-    <p>Successful Rides</p>
+    <p>Successful Tours</p>
   </div>
 
   <div 
     class="counter-box" 
     style="display:inline-block; text-align:center; padding:20px; margin:20px; border:2px solid #4CAF50; border-radius:10px; width:200px; transition:0.3s;">
     
-    <div class="number" data-target="180" style="font-size:2.5rem; color:#4CAF50; font-weight:bold;">0</div>
-    <p>Satisfied Clients</p>
+    <div class="number" data-target="280" style="font-size:2.5rem; color:#4CAF50; font-weight:bold;">0</div>
+    <p>Happy Clients</p>
   </div>
 
 </div>
@@ -577,8 +556,8 @@ document.querySelectorAll('.counter-box').forEach(box => {
   observer.observe(box);
 });
 </script>
- <!-- Animated Counters Section  end-->
 
+<!-- End Counter Section -->
 </section>
 
 
@@ -1335,34 +1314,6 @@ document.querySelectorAll('.counter-box').forEach(box => {
             </div>
         </div>
     </section>
-    <div class="bg-whitesmoke-800 text-gray py-12">
-        <p>
-            Welcome to Ancent Tours and Hotels – Discover Kenya with Trusted Travel & Accommodation Services
-At Ancent Tours and Hotels, we make your travel across Kenya seamless, secure, and unforgettable. Whether you're a local or international traveler, we offer reliable hotel bookings, guided tour packages, and chauffeur services in key destinations including Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret. Book rooms with us at top hotels such as Sarova Stanley, PrideInn Paradise, Acacia Premier, Sarova Woodlands, and Boma Inn, with options to match your style and budget. Our tour packages include national parks, beach escapes, and cultural experiences, all with optional chauffeur support and custom itineraries. We support secure M-Pesa payments, and all bookings collect next-of-kin details to enhance traveler safety. With Ancent, you enjoy convenience, comfort, and unforgettable adventures – every time.
-        </p>
-<body>
-
-    <section class=" bg-gray-800 text-white py-12">
-        <h2>FAQs</h2>
-        <details>
-            <summary>How do I book a tour?</summary>
-            <p>You can book a tour directly on our website by selecting your preferred destination and following the booking instructions.</p>
-        </details>
-        <details>
-            <summary>What payment methods are accepted?</summary>
-            <p>We accept M-PESA, Airtel Money and bank transfers. See below for more details.</p>
-        </details>
-        <details>
-            <summary>Can I cancel or modify my booking?</summary>
-            <p>Yes, you can cancel or modify your booking according to our cancellation policy.</p>
-        </details>
-        <details>
-            <summary>How do I contact customer support?</summary>
-            <p>You can reach us via email at support@ancenttours.com or call us at +254701432460.</p>
-        </details>
-    </section>
-
-    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
@@ -1473,7 +1424,24 @@ At Ancent Tours and Hotels, we make your travel across Kenya seamless, secure, a
             }
         });
     </script>
-     
+   <script>
+  // Enable hover-like behavior on touch devices for elements with :hover styles
+  document.addEventListener("DOMContentLoaded", function () {
+    const hoverElements = document.querySelectorAll("*");
+    hoverElements.forEach(el => {
+      const hover = window.getComputedStyle(el, ":hover");
+      if (hover && hover.length > 0) {
+        el.addEventListener("touchstart", () => {
+          el.classList.add("touch-hover");
+        });
+        el.addEventListener("touchend", () => {
+          setTimeout(() => el.classList.remove("touch-hover"), 300);
+        });
+      }
+    });
+  });
+</script>
+  
 
 </body>
 </html>
