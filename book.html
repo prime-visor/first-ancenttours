@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Booking</title>
+    <link rel="web icon" type="png" href="logos/logos/prime logo.jpg">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388e3c;
+            --accent: #fff;
+            --bg: #f4f8fb;
+            --card-bg: #fff;
+            --shadow: 0 8px 24px rgba(44,62,80,0.08);
+            --border: #e0e0e0;
+            --radius: 14px;
+            --transition: 0.2s;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: #222;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-top: 32px;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+        #return {
+            display: block;
+            margin: 24px auto 0;
+            width: fit-content;
+            background: var(--primary);
+            color: var(--accent);
+            text-decoration: none;
+            padding: 10px 32px;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: background var(--transition);
+        }
+        #return:hover {
+            background: var(--primary-dark);
+        }
+        form {
+            max-width: 900px;
+            margin: 32px auto 32px;
+            background: var(--card-bg);
+            padding: 36px 32px 32px 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .form-group {
+            margin-bottom: 28px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.08rem;
+        }
+        input, select, button, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            margin-bottom: 0;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #fafbfc;
+            transition: border var(--transition);
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            accent-color: var(--primary);
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .people-input {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            padding: 10px 16px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.03);
+        }
+        .people-input label {
+            margin: 0;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .people-input input[type="number"] {
+            width: 70px;
+            margin-bottom: 0;
+        }
+        .checkbox-group > div > label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: #f7f7f7;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.03);
+            cursor: pointer;
+            transition: box-shadow var(--transition), border var(--transition);
+            border: 1px solid transparent;
+        }
+        .checkbox-group > div > label:hover, .checkbox-group > div > label:focus-within {
+            box-shadow: 0 4px 16px rgba(44,62,80,0.08);
+            border: 1px solid var(--primary);
+        }
+        .checkbox-group label img {
+            width: 100%;
+            max-width: 260px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #eaeaea;
+        }
+        .checkbox-group label p {
+            margin: 0;
+            font-size: 0.98rem;
+            color: #444;
+        }
+        button[type="submit"] {
+            background: var(--primary);
+            color: var(--accent);
+            border: none;
+            border-radius: var(--radius);
+            padding: 14px 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: background var(--transition), box-shadow var(--transition);
+            margin-top: 12px;
+        }
+        button[type="submit"]:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 8px 32px rgba(44,62,80,0.12);
+        }
+        #total {
+            background: #e8f5e9;
+            color: #1b5e20;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 1.5px solid var(--primary);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+        .accept-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        @media (max-width: 700px) {
+            form {
+                padding: 18px 6vw 18px 6vw;
+            }
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            .checkbox-group label img {
+                max-width: 100%;
+            }
+        }
+        a[href^="sms:"] {
+            display: block;
+            margin: 32px auto 0;
+            width: fit-content;
+            background: #1976d2;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 32px;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: background var(--transition);
+        }
+        a[href^="sms:"]:hover {
+            background: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hotel Booking Form</h1>
+    <a href="index.html" id="return">Return to home page</a>
+    <form id="bookingForm" action="mailto:primebookings0@gmail.com" method="post" enctype="text/plain" autocomplete="off">
+        <input type="hidden" name="Subject" value="Tour Booking Request">
+        <input type="hidden" name="booking" value="Dear Ancent Bookings Team,%0D%0AI hope this email finds you well. I would like to book a tour with the following details:%0D%0A">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="example@email.com">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="07XXXXXXXX">
+        </div>
+        <div class="form-group">
+            <label>Gender and Age:</label>
+            <div class="checkbox-group" style="grid-template-columns: 1fr 1fr;">
+                <div class="people-input">
+                    <label><input type="checkbox" name="genderAge[]" value="Male Above 18" onchange="calculateTotal()"> Male Above 18</label>
+                    <input type="number" name="maleAbove18Count" placeholder="No. of people" min="0" oninput="calculateTotal()">
+                </div>
+                <div class="people-input">
+                    <label><input type="checkbox" name="genderAge[]" value="Male Below 18" onchange="calculateTotal()"> Male Below 18</label>
+                    <input type="number" name="maleBelow18Count" placeholder="No. of people" min="0" oninput="calculateTotal()">
+                </div>
+                <div class="people-input">
+                    <label><input type="checkbox" name="genderAge[]" value="Female Above 18" onchange="calculateTotal()"> Female Above 18</label>
+                    <input type="number" name="femaleAbove18Count" placeholder="No. of people" min="0" oninput="calculateTotal()">
+                </div>
+                <div class="people-input">
+                    <label><input type="checkbox" name="genderAge[]" value="Female Below 18" onchange="calculateTotal()"> Female Below 18</label>
+                    <input type="number" name="femaleBelow18Count" placeholder="No. of people" min="0" oninput="calculateTotal()">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="nights" style="margin-top:12px;">No of Nights</label>
+            <input type="number" id="nights" name="nights" placeholder="No of nights" min="1" required>
+        </div>
+        <div class="form-group">
+            <label>Please select your preferred place of visit below:</label>
+            <div class="checkbox-group">
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Lake Nakuru" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0009.jpg" alt="Lake Nakuru">
+                        <p>Lake Nakuru ($100) - A national park known for its flamingos and rhinos.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Nairobi National Park" onchange="calculateTotal()">
+                        <img src="PHOTOS/AdobeStock_226731299_Preview.jpeg" alt="Nairobi National Park">
+                        <p>Nairobi National Park ($50) - A unique wildlife park located near the city.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Maasai Mara" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0022.jpg" alt="Maasai Mara">
+                        <p>Maasai Mara ($150) - Famous for the Great Migration and rich wildlife.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Giraffe Centre" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0025.jpg" alt="Giraffe Centre">
+                        <p>Giraffe Centre ($30) - A conservation center for endangered giraffes.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Safari Walk" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0007.jpg" alt="Safari Walk">
+                        <p>Safari Walk ($40) - A serene nature trail with diverse wildlife.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Tsavo National Park" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0005.jpg" alt="Tsavo National Park">
+                        <p>Tsavo National Park ($120) - One of the largest national parks in Kenya.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Amboseli" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0018.jpg" alt="Amboseli">
+                        <p>Amboseli ($120) - Known for its large elephant herds and views of Mt. Kilimanjaro.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Nairobi National Museum" onchange="calculateTotal()">
+                        <img src="PHOTOS/AdobeStock_658040953_Preview_Editorial_Use_Only.jpeg" alt="Nairobi National Museum">
+                        <p>Nairobi National Museum ($20) - Showcasing Kenya's rich cultural heritage.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Nairobi Museum of Illusions" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0004.jpg" alt="Nairobi Museum of Illusions">
+                        <p>Nairobi Museum of Illusions ($25) - A fun and interactive experience with optical illusions.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Kisumu Museum" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0021.jpg" alt="Kisumu Museum">
+                        <p>Kisumu Museum ($15) - A regional museum showcasing local culture and history.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Bomas of Kenya" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0024.jpg" alt="Bomas of Kenya">
+                        <p>Bomas of Kenya ($10) - A cultural center celebrating Kenya's diverse traditions.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Vasco da Gama Pillar" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0023.jpg" alt="Vasco da Gama Pillar">
+                        <p>Vasco da Gama Pillar ($10) - A historic landmark in Malindi.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Fort Jesus" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0013.jpg" alt="Fort Jesus">
+                        <p>Fort Jesus ($20) - A UNESCO World Heritage Site in Mombasa.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Sand Beaches" onchange="calculateTotal()">
+                        <img src="PHOTOS/AdobeStock_559198657_Preview.jpeg" alt="Sand Beaches">
+                        <p>Sand Beaches ($50) - Relax on Kenya's pristine coastal beaches.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Lake Bogoria" onchange="calculateTotal()">
+                        <img src="PHOTOS/AdobeStock_454203712_Preview.jpeg" alt="Lake Bogoria">
+                        <p>Lake Bogoria ($80) - A saline, alkaline lake known for its flamingos, geysers and hot springs.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Lake Victoria" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0016.jpg" alt="Lake Victoria">
+                        <p>Lake Victoria ($90) - The largest lake in Africa, known for its biodiversity.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Lake Baringo" onchange="calculateTotal()">
+                        <img src="picha/hippo-lake-baringo-590x390.jpg" alt="Lake Baringo">
+                        <p>Lake Baringo ($60) - A freshwater lake known for its birdlife.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Lake Naivasha" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0008.jpg" alt="Lake Naivasha">
+                        <p>Lake Naivasha ($75) - A freshwater lake surrounded by wildlife.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Mt Kenya" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0017.jpg" alt="Mt Kenya">
+                        <p>Mt Kenya ($200) - The highest mountain in Kenya, offering trekking opportunities.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Mt Longonot" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0003.jpg" alt="Mt Longonot">
+                        <p>Mt Longonot ($150) - A dormant volcano with scenic hiking trails.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Mt Elgon" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0014.jpg" alt="Mt Elgon">
+                        <p>Mt Elgon ($180) - A large extinct shield volcano with diverse flora and fauna.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Mt Kilimanjaro" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0018.jpg" alt="Mt Kilimanjaro">
+                        <p>Mt Kilimanjaro ($250) - Africa's highest peak, a popular trekking destination.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Ngong Hills" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0002.jpg" alt="Ngong Hills">
+                        <p>Ngong Hills ($50) - A scenic area with hiking trails and panoramic views.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Menengai Crater" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0019.jpg" alt="Menengai Crater">
+                        <p>Menengai Crater ($100) - A large volcanic crater with hiking opportunities.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Hells Gate" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0010.jpg" alt="Hells Gate">
+                        <p>Hells Gate ($120) - A national park known for its geothermal activity.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Thomson Falls" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0011.jpg" alt="Thomson Falls">
+                        <p>Thomson Falls ($80) - A stunning waterfall located in Nyahururu.</p>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="places[]" value="Lord Egerton Castle" onchange="calculateTotal()">
+                        <img src="picha/IMG-20250202-WA0012.jpg" alt="Lord Egerton Castle">
+                        <p>Lord Egerton Castle ($60) - A historical site with beautiful gardens.</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="total">Total Amount:</label>
+            <input type="text" id="total" name="total" readonly>
+        </div>
+        <input type="hidden" name="Clarification" value="%0D%0A%0D%0APlease let me know if you need any additional information and the progress update.%0D%0A%0D%0A">
+        <div class="form-group">
+            <label class="accept-label"><input type="checkbox" id="accept" required> I accept the total amount and wish to proceed with booking.</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="sms:+254701432460?body=Please%20contact%20me.">Send an SMS</a>
+    <script>
+        // Place prices
+        const placePrices = {
+            "Lake Nakuru": 100,
+            "Nairobi National Park": 50,
+            "Maasai Mara": 150,
+            "Giraffe Centre": 30,
+            "Safari Walk": 40,
+            "Tsavo National Park": 120,
+            "Amboseli": 120,
+            "Nairobi National Museum": 20,
+            "Nairobi Museum of Illusions": 25,
+            "Kisumu Museum": 15,
+            "Bomas of Kenya": 10,
+            "Vasco da Gama Pillar": 10,
+            "Fort Jesus": 20,
+            "Sand Beaches": 50,
+            "Lake Bogoria": 80,
+            "Lake Victoria": 90,
+            "Lake Baringo": 60,
+            "Lake Naivasha": 75,
+            "Mt Kenya": 200,
+            "Mt Longonot": 150,
+            "Mt Elgon": 180,
+            "Mt Kilimanjaro": 250,
+            "Ngong Hills": 50,
+            "Menengai Crater": 100,
+            "Hells Gate": 120,
+            "Thomson Falls": 80,
+            "Lord Egerton Castle": 60
+        };
+
+        function calculateTotal() {
+            // Get selected places
+            const places = Array.from(document.querySelectorAll('input[name="places[]"]:checked')).map(p => p.value);
+
+            // Get people counts
+            const maleAbove18 = parseInt(document.querySelector('input[name="maleAbove18Count"]').value) || 0;
+            const maleBelow18 = parseInt(document.querySelector('input[name="maleBelow18Count"]').value) || 0;
+            const femaleAbove18 = parseInt(document.querySelector('input[name="femaleAbove18Count"]').value) || 0;
+            const femaleBelow18 = parseInt(document.querySelector('input[name="femaleBelow18Count"]').value) || 0;
+            const nights = parseInt(document.querySelector('input[name="nights"]').value) || 1;
+
+            const totalPeople = maleAbove18 + maleBelow18 + femaleAbove18 + femaleBelow18;
+
+            // Calculate base total per person per night
+            let total = 0;
+            for (const place of places) {
+                total += (placePrices[place] || 0);
+            }
+
+            // Calculate total for all people and nights
+            let grandTotal = 0;
+            if (totalPeople > 0 && total > 0) {
+                // Above 18: full price, Below 18: 20% discount
+                const adultCount = maleAbove18 + femaleAbove18;
+                const childCount = maleBelow18 + femaleBelow18;
+                grandTotal = (
+                    (adultCount * total) +
+                    (childCount * total * 0.8)
+                ) * nights;
+            }
+
+            document.getElementById('total').value = grandTotal > 0 ? `$${grandTotal.toFixed(2)}` : '';
+        }
+
+        // Auto-update total on page load and on input change
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateTotal();
+            document.querySelectorAll('input, select').forEach(el => {
+                el.addEventListener('change', calculateTotal);
+            });
+        });
+    </script>
+</body>
+</html>
