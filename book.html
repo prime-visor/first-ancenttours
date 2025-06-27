@@ -203,11 +203,69 @@
             transition: background var(--transition);
         }
         a[href^="sms:"]:hover {
+           
             background: #0d47a1;
         }
+        body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+/*loader*/
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
     </style>
 </head>
+<div id="loader-wrapper">
+  <div id="loader"></div>
+</div>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader-wrapper").style.display = "none";
+  });
+</script>
+
 <body>
+    
+  <!-- Scroll progress bar container -->
+  <div id="progress-container" style="position:fixed; top:0; left:0; width:100%; height:6px; background:#ddd; z-index:9999;">
+    <div id="progress-bar" style="height:100%; width:0%; background:#4caf50;"></div>
+  </div>
+
+  <!-- Page content -->
+  <div style="padding:20px; font-family:sans-serif;">
+  </div>
+
+  <!-- JavaScript to update scroll progress -->
+  <script>
+    window.onscroll = function () {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
+  </script>
+
     <h1>Tour Booking Form</h1>
     <a href="index.html" id="return">Return to home page</a>
     <form id="bookingForm" action="mailto:primebookings0@gmail.com" method="post" enctype="text/plain" autocomplete="off">
@@ -215,15 +273,15 @@
         <input type="hidden" name="booking" value="Dear Ancent Bookings Team,%0D%0AI hope this email finds you well. I would like to book a tour with the following details:%0D%0A">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required placeholder="Your full name">
+            <input type="text" id="name" name="name" required placeholder="Your valid full name">
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required placeholder="example@email.com">
+            <input type="email" id="email" name="email" required placeholder="Valid email eg: example@email.com">
         </div>
         <div class="form-group">
             <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required placeholder="07XXXXXXXX">
+            <input type="tel" id="phone" name="phone" required placeholder="Valid phone eg: 07XXXXXXXX">
         </div>
         <div class="form-group">
             <label>Gender and Age:</label>
