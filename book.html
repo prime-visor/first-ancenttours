@@ -248,15 +248,11 @@
 <body>
     
   <!-- Scroll progress bar container -->
-  <div id="progress-container" style="position:fixed; top:0; left:0; width:100%; height:6px; background:#ddd; z-index:9999;">
+    <body style="margin:0; padding:0; overflow-x:hidden;">
+
+  <div id="progress-container" style="position:fixed; top:0; left:0; width:100%; height:6px; background:#ccc; z-index:9999;">
     <div id="progress-bar" style="height:100%; width:0%; background:#4caf50;"></div>
   </div>
-
-  <!-- Page content -->
-  <div style="padding:20px; font-family:sans-serif;">
-  </div>
-
-  <!-- JavaScript to update scroll progress -->
   <script>
     window.onscroll = function () {
       var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
